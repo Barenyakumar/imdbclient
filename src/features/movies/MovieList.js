@@ -31,10 +31,13 @@ const MovieList = () => {
       <Link to="/add-movie">Add New Movie</Link>
       <ul>
         {movies.map(movie => (
-          <li key={movie._id}>
-            <strong>{movie.name}</strong> ({movie.yearOfRelease}) <br />
-            Producer: {movie.producer?.name} <br />
-            Actors: {movie.actors?.map(a => a.name).join(', ')} <br />
+          <li key={movie._id} style={{ marginBottom: '1rem' }}>
+            <strong>Movie:</strong> {movie.name} <br />
+            <strong>Year of Release:</strong> ({movie.yearOfRelease}) <br />
+            <strong>Plot:</strong> {movie.plot} <br />
+            <strong>Poster:</strong> {movie.poster} <br />
+            <strong>Producer: </strong> {movie.producer?.name} <br />
+            <strong>Actors:</strong> {movie.actors?.map(a => a.name).join(', ')} <br />
             <Link to={`/edit-movie/${movie._id}`}>Edit</Link>
             {' | '}
             <button onClick={() => handleDelete(movie._id)}>Delete</button>
